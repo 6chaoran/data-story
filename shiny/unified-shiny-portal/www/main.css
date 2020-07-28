@@ -1,0 +1,68 @@
+
+body {
+  margin: 10px 20px 10px ;
+}
+
+h1, h2, h3 {
+  text-transform: uppercase;
+  font-family:"DINCondensed",Helvetica,Roboto,Arial,sans;
+  font-style:normal;
+  font-weight:bold;
+  color:#191919;
+  text-rendering:optimizeLegibility;
+  vertical-align:middle;
+}
+
+h1 {
+  font-size: 3.5em;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2.5em;
+}
+
+.header {
+  background-color: white;
+}
+
+.footer {
+  background-color: white;
+}
+
+.main-page {
+  padding: 10px;
+  background-color: white;
+}
+
+.header-line {
+  color: gray;
+  border-width: 2px;
+}
+
+.info-text {
+  font-family: "Courier New";
+  font-style: italic;
+}
+
+.warn-text {
+  color: red;
+  font-style: italic;
+}
+
+.output-text {
+  font-size: 1.5em;
+  margin: 10px;
+  padding: 10px;
+}
+
+.btn.btn-default {
+  color: #ffffff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+
+.login-text {
+  color: #832FCC;
+}
+

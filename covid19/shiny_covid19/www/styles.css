@@ -1,0 +1,29 @@
+.valueBoxTitle {
+  font: bold 18px sans-serif;
+  color:#006666;
+}
+
+.valueBox {
+  float: left;
+  text-align: center;
+  font: bold 18px sans-serif;
+  padding: 0 0 5px 20px;
+  margin: 0 0 5px 20px;
+}
+
+.blankBox {
+  padding: 10px;
+  margin: 10px;
+}
+
+#confirmed {
+  color: #ff9900;
+}
+
+#recovered {
+  color: #006600;
+}
+
+#death {
+  color: #cc3300;
+}

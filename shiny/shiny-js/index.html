@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>D3 Sankey</title>
+	<script src="https://d3js.org/d3.v5.min.js"></script>
+	<script src="https://unpkg.com/d3-array@1"></script>
+	<script src="https://unpkg.com/d3-collection@1"></script>
+	<script src="https://unpkg.com/d3-path@1"></script>
+	<script src="https://unpkg.com/d3-shape@1"></script>
+	<script src="https://unpkg.com/d3-sankey@0"></script>
+	<link rel="stylesheet" type="text/css" href="./css/styles.css">
+</head>
+<body>
+	<label for="sankeyAlign">sankeyAlign: </label>
+	<select id="sankeyAlign">
+		<option value="left">Left</option>
+		<option value="right">Right</option>
+		<option value="justify" selected>Justified</option>
+		<option value="center">Centred</option>
+	</select>
+	<label for="edgeColor">edgeColor: </label>
+	<select id="edgeColor">
+		<option value="input" selected>input</option>
+		<option value="output">output</option>
+		<option value="none">none</option>
+	</select>
+	<br><br>
+	<button onclick="sankeyShow()">show sankey</button>
+	<button onclick="sankeyHide()" id="btnSankeyHide">hide sankey</button>
+	<div id="chartSankey"></div>
+	<script src="./js/sankey.js"></script>
+</body>
+</html>

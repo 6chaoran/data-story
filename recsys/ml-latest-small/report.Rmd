@@ -1,0 +1,51 @@
+---
+title: "Model Based Recommendation System Implementation in R"
+author: "Liu Chaoran"
+date: "28/11/2016"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
+    df_print: kable
+---
+
+## Overview
+
+* The most straight forward recommendation system are either user based CF (collabrative filtering) or item based CF, which are categorized as memory based methods. User-Based CF is to recommend products basd on behaviour of similar users, and the Item-Based CF is to recommend similar products from products that user purchased. No matter which method is used, the user-user or item-item similarity matrix, which could be sizable, is required to compute.
+* While on the contrast, a model based approah could refer to converting recommendation problem to regression, classification, learning to rank problem. Matrix Factorizaiton, which is also known as latent factor model,SVD, is one of the most commonly used model based methods. In this post, a variety methods of CF will be discussed, including:
+    + Gradient Descent CF (GD)
+    + Alternating Least Square (ALS)
+
+## Dateset
+This post is demonstrated on MovieLens dataset, which consists of 10M rows of user-movie rating records.
+
+## Formula
+The matrix factorization representation: the rating matrix could be considered as the cross product of two matrix.
+$$Y = U \times M$$
+where $\textit{Y}$ is the rating matrix with dimension (u,p), U is the decomposed user matrix, M is the decomposed movie matrix.
+Loss function:
+$$Loss = \frac{1}{2}\sum{[R(Y - UM)]^{2}} + \lambda|U|^{2} + \lambda|M|^{2}$$
+Gradient function:
+$$\frac{\partial{L}}{\partial{U}} = (Y - UM)M^{T} + \lambda|U|$$ 
+$$\frac{\partial{L}}{\partial{M}} = U(Y - UM)^{T} + \lambda|M|$$ 
+
+## Model Optimizer
+There are two methods that we are going to compare:
+
+* Gradient Descent CF: update the gradients of user and item matrix simutanously
+* Alternating Least Square: update the gradients of user and item matrix alternatively
+
+Ideally, gradient descent should have better model performance; while alternating least square could have faster convergence. When the size of data grows large, the difference will be more severe.
+
+## Result Comparison
+
+method | iter | rmse.train | rmse.val | time
+-------|------|------------|----------|--------
+GD     |205   | 0.8047878  |0.9328183 |153.463
+ALS    |280   |0.8295948   |0.9366344 |153.357
+
+```{r, echo=FALSE, comment=NULL, fig.height=4, fig.width=8}
+hist.plot
+```
+
+

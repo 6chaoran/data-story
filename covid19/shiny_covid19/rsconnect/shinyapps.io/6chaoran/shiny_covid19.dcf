@@ -1,0 +1,13 @@
+name: shiny_covid19
+title: shiny_covid19
+username:
+account: 6chaoran
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1825115
+bundleId: 3339105
+url: https://6chaoran.shinyapps.io/shiny_covid19/
+when: 1593613094.12797
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: .Rprofile

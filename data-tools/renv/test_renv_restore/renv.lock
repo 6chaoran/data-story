@@ -1,0 +1,39 @@
+{
+  "R": {
+    "Version": "4.0.2",
+    "Repositories": [
+      {
+        "Name": "CRAN",
+        "URL": "https://cran.rstudio.com"
+      }
+    ]
+  },
+  "Packages": {
+    "digest": {
+      "Package": "digest",
+      "Version": "0.6.25.1",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "eddelbuettel",
+      "RemoteRepo": "digest",
+      "RemoteRef": "742871a3fae83f5cad8f7adab7fc9faaab4138c3",
+      "RemoteSha": "742871a3fae83f5cad8f7adab7fc9faaab4138c3",
+      "Hash": "80b4f94d36f37532241c5b88abf45341"
+    },
+    "glue": {
+      "Package": "glue",
+      "Version": "1.2.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "3af69da2720fa76fa63501cb0918a722"
+    },
+    "renv": {
+      "Package": "renv",
+      "Version": "0.11.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "1c3ef87cbb81c23ac96797781ec7aecc"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+name: nyc-taxi
+title: nyc-taxi
+username:
+account: 6chaoran
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 388530
+bundleId: 1501740
+url: https://6chaoran.shinyapps.io/nyc-taxi/
+when: 1532612444.36075
+asMultiple: FALSE
+asStatic: FALSE
