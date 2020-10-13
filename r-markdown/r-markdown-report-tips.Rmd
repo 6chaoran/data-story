@@ -1,0 +1,295 @@
+---
+title: "Tips of R Markdown Report"
+author: "Chaoran Liu"
+date: "`r Sys.Date()`"
+output: 
+  rmdformats::readthedown:
+    code_folding: show
+    highlight: kate
+    toc_depth: 2
+    number_sections: no
+    self_contained: true
+---
+<style>
+  #content {
+    max-width: 1400px;
+  }
+  #sidebar h2 {
+    background-color: #008B8B;
+  }
+  
+  h1, h2 {
+    color: #008B8B;
+  }
+</style>
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,
+                      fig.width = 8,
+                      fig.height = 4)
+library(dplyr)
+library(ggplot2)
+library(plotly)
+library(googleVis)
+library(knitr)
+library(kableExtra)
+library(DT)
+library(summarytools)
+library(forcats)
+library(ggpubr)
+```
+
+# Introduction
+<hr>
+
+When presenting the data overview and exploratory analysis results, we used to copy a lots tables, charts from Rstudio to PowerPoint, which makes the presentation preparation painful. It become essential for data scientist to make use of better reporting tools, such as R markdown, jupyter notebooks to author analysis presentation in a more efficient and organized way, of course, we also want this to be reproducible!
+
+In this post, I would like to share some tips when I explore building analysis report using R markdown/notebook. 
+
+# R markdown
+
+<hr>
+
+Yihui Xie provided a very comprehensive and updated version of R markdown cookbook at https://bookdown.org/yihui/rmarkdown/, which gives good explanation how to make table of content, fold code snippets, configure the yaml header and more.
+
+# Tabs {.tabset}
+
+<hr>
+
+One thing I found specially useful is the tabbed section. Tab layout helps to condense the parallel and lengthy content in the report.
+
+Simply put `{.tabset}` tag after the markdown header and the sub-headers will become the tabs. The following code snippet gives an example
+
+```
+# Tabs {.tabset}
+
+## Header2 - Tab1
+this is tab1
+
+## Header2 - Tab2
+this is tab2
+```
+
+## Header2 - Tab1
+this is tab1
+
+## Header2 - Tab2
+this is tab2
+
+<br>
+
+# Tables
+
+<hr>
+
+The native markdown table isn't very user-friendly, so we have to make use of functions such as `knitr::kable` or `DT::datatable` to render the table from `data.frame`.
+
+I would like to share some tips on choosing between `kable` and `datatable`. 
+
+* `kable` has simpler syntax and give more appealing "table like" tables in most themes.
+* `datatable` has more capability such as paged tables with download buttons. There are more configurations could be referred from its JavaScript API specifications.
+
+In a nutshell, `kable` is preferable for smaller tables, while `datatable` is preferable for bigger tables.
+
+## markdown table
+
+some random markdown table
+
+```
+| Tables   |      Are      |  Cool |
+|----------|:-------------:|------:|
+| col 1 is |  left-aligned | $1600 |
+| col 2 is |    centered   |   $12 |
+| col 3 is | right-aligned |    $1 |
+
+```
+
+| Tables   |      Are      |  Cool |
+|----------|:-------------:|------:|
+| col 1 is |  left-aligned | $1600 |
+| col 2 is |    centered   |   $12 |
+| col 3 is | right-aligned |    $1 |
+
+## kable
+
+`kable` is from `knitr` package
+
+```{r kable}
+require(knitr)
+require(kableExtra)
+mtcars %>%
+  head() %>%
+  kable(digits = 1, caption = 'example of kable table') %>%
+  kable_styling(full_width = FALSE, position = 'left') %>%
+  row_spec(0,
+           bold = T,
+           color = 'white',
+           background = 'black')
+```
+
+## datatable
+
+`datatable` is from `DT` package
+
+### JS - DataTables
+
+options list: https://datatables.net/reference/option/
+
+### R - DT package
+
+https://rstudio.github.io/DT/
+
+```{r}
+mtcars %>%
+  datatable(
+    class = 'cell-border stripe',
+    extensions = 'Buttons',
+    options = list(
+      dom = 'Bfrtip',
+      buttons = c('copy', 'csv', 'print')
+    )
+  )
+```
+
+
+# Data Summary
+
+<hr>
+
+Data quality is often required to check before any real analytics works. Since this is very routine job, there's a package called `summarytools` well handles this. The following beautiful data summary report is generated for the example dataset `mtcars` using `summarytools`.
+
+* `summartools` github page: https://github.com/dcomtois/summarytools
+
+```{r results='asis', warning=FALSE}
+require(summarytools)
+mtcars %>%
+  dfSummary(style = 'grid',
+            graph.magnif = 0.75,
+            plain.ascii = F,
+            valid.col = FALSE,
+            tmp.img.dir = "/tmp") %>%
+  print()
+```
+
+
+# Static Plots
+
+`ggplot2` is our best friend in R visualization and it has good support in R markdown. Chaining functions using `%>%` and `+` makes the code chunk beautiful!
+
+A lot of times, we would like combined many sub-plots into one. `ggplot2::facet_grid` could do some of jobs, but I found `ggpubr::ggarrange` is more powerful that allow you to combined any plots and even tables. It's cool to put chart and table side by side. (example is given in subsequent section)
+
+`ggrigdes` is another useful `ggplot` extension that plots multiple density plots in a single chart. This is often used when comparing profiles between groups. check the detail from here: https://cran.r-project.org/web/packages/ggridges/vignettes/introduction.html 
+
+<hr>
+
+## ggplot
+
+```{r}
+require(ggplot2)
+cor(mtcars) %>%
+  as.data.frame() %>%
+  tibble::rownames_to_column('var1')  %>%
+  tidyr::pivot_longer(-var1, names_to = 'var2', values_to = 'cor') %>%
+  filter(var1 <= var2) %>%
+  ggplot(aes(x = var1, y = var2, fill = cor, label = round(cor,2))) +
+  geom_tile() +
+  geom_text() +
+  scale_fill_gradient2() +
+  labs(title = 'example of ggplot2 in R markdown')
+```
+
+## ggpubr
+
+combine mulitple charts or tables
+
+```{r warning=FALSE}
+
+require(ggpubr)
+require(forcats)
+# add .groups = 'drop' to remove some warnings from `dplyr`
+data <- mtcars %>%
+  group_by(gear) %>%
+  summarise(n = n(), .groups = 'drop') %>%
+  ungroup() %>%
+  mutate(gear = fct_rev(factor(gear)))
+
+plt <- data %>%
+  ggplot(aes(x  = gear, y = n)) +
+  geom_bar(stat = 'identity', fill = 'lightblue') +
+  coord_flip() +
+  labs(title = 'example of combined table and plot using ggpubr')
+
+tbl <- ggtexttable(data, rows = NULL)
+ggarrange(plt, tbl, ncol =2 , nrow = 1, widths = c(2,1))
+```
+
+
+# Interactive Plots
+
+<hr>
+
+This is the section that becomes tricky. Interaction plots are only supported in HTML R document and there is no dominating interactive visualization packages in R environment. 
+
+* `plotly` provides comprehensive chart types, documentation and cross-language capability. However I personally don't like the style, syntax and toolbox at the right upper corner.
+
+* `echarts4r` is a R interface for `Echarts` JavaScript library, which was open sourced by Baidu. I have tested the `latest version 0.3.2` and it works well with R markdown. 
+
+* `googleVis` is a R interface for `Google Charts` JavaScript library, which was of course developed by Google. The package has a good collection of different chart types, but it has some unknown incompatibility with both R markdown and Shiny. I've found a workaround to integrate `googleVis` charts in R markdown, but it's not perfect. 
+
+The interactive plots can't be shown in Github rendered pages, so I just paste the code in following sections. They should be working fine on offline R markdown.
+
+## Plotly
+
+Plotly R document site: https://plotly.com/r/
+
+```{r}
+require(plotly)
+p <- mtcars %>%
+  mutate(am = factor(am)) %>%
+  ggplot(aes(x = mpg, y = wt, color = am)) +
+  geom_point() +
+  labs(title = 'example of plotly in R markdown')
+ggplotly(p)
+```
+
+## Echarts
+
+* echarts4r github: https://echarts4r.john-coene.com/
+* Echarts site: https://echarts.apache.org/en/index.html
+
+```{r}
+library(echarts4r)
+df <- data.frame(
+  x = LETTERS[1:5],
+  y = runif(5, 1, 5),
+  z = runif(5, 3, 7)
+)
+
+df %>% 
+  e_charts(x) %>% 
+  e_radar(y, max = 7, name = "radar") %>%
+  e_radar(z, max = 7, name = "chart") %>%
+  e_tooltip(trigger = "item")
+```
+
+## Google Charts
+
+* googleVis: https://github.com/mages/googleVis
+* Google Charts: https://developers.google.com/chart
+
+`self_contained: false` is required for googleVis charts render in R markdown, refer to the github issue [here](https://github.com/mages/googleVis/issues/92).
+
+```
+output: 
+  html_document:
+    self_contained: false
+```
+
+```{r results='asis'}
+# self_contained: false is required for googleVis charts render in R markdown
+# `results = 'asis'` is required in code snippet of R markdown
+suppressPackageStartupMessages(library(googleVis))
+op <- options(gvis.plot.tag="chart")
+plot(gvisHistogram(dino))
+```
+
