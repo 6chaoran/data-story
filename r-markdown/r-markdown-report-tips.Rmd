@@ -1,5 +1,5 @@
 ---
-title: "Tips of R Markdown Report"
+title: "Tips of Drafting R Markdown Document"
 author: "Chaoran Liu"
 date: "`r Sys.Date()`"
 output: 
@@ -45,38 +45,6 @@ library(ggpubr)
 When presenting the data overview and exploratory analysis results, we used to copy a lots tables, charts from Rstudio to PowerPoint, which makes the presentation preparation painful. It become essential for data scientist to make use of better reporting tools, such as R markdown, jupyter notebooks to author analysis presentation in a more efficient and organized way, of course, we also want this to be reproducible!
 
 In this post, I would like to share some tips when I explore building analysis report using R markdown/notebook. 
-
-# R markdown
-
-<hr>
-
-Yihui Xie provided a very comprehensive and updated version of R markdown cookbook at https://bookdown.org/yihui/rmarkdown/, which gives good explanation how to make table of content, fold code snippets, configure the yaml header and more.
-
-# Tabs {.tabset}
-
-<hr>
-
-One thing I found specially useful is the tabbed section. Tab layout helps to condense the parallel and lengthy content in the report.
-
-Simply put `{.tabset}` tag after the markdown header and the sub-headers will become the tabs. The following code snippet gives an example
-
-```
-# Tabs {.tabset}
-
-## Header2 - Tab1
-this is tab1
-
-## Header2 - Tab2
-this is tab2
-```
-
-## Header2 - Tab1
-this is tab1
-
-## Header2 - Tab2
-this is tab2
-
-<br>
 
 # Tables
 
