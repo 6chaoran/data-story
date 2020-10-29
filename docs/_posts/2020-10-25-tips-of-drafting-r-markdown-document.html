@@ -1,22 +1,21 @@
 ---
 title: "Tips of Drafting an R Markdown Document"
-date: 2020-10-21 23:02:01 +0800
+date: 2020-10-25 23:02:01 +0800
 toc: true
-toc_sticky: false
+toc_sticky: true
 categories: 
   - visualization
 tags:
   - R
-classes: wide
 ---
         
-<h2 id="introduction">Introduction</h2>
-
 <p>When presenting the data overview and exploratory analysis results, we used to copy a lots tables, charts from Rstudio to PowerPoint, which makes the presentation preparation painful. It become essential for data scientist to make use of better reporting tools, such as R markdown, jupyter notebooks to author analysis presentation in a more efficient and organized way, of course, we also want this to be reproducible!</p>
+
+<!--more-->
 
 <p>In this post, I would like to share some tips of using the right tools to draw tables, plot charts, summarize datasets, when I explore building analysis report using R markdown/notebook.</p>
 
-<h2 id="notebook-configuration">Notebook Configuration</h2>
+<h2 id="notebook-configuration">Configuring the notebook</h2>
 
 <p>The configure of notebook is set by the yaml header at the beginning of the Rmd file.</p>
 
@@ -60,7 +59,7 @@ classes: wide
 </code></pre></div></div>
 <p><img src="https://github.com/juba/rmdformats/raw/master/tools/screenshots/readthedown.png" alt="readthedown theme"></p>
 
-<h2 id="customize-with-css">Customize with CSS</h2>
+<h2 id="customize-with-css">Customizing with CSS</h2>
 
 <p>If you are familiar with some basic CSS, you can further tune the formats as you wish. 
 For example, I’m not happy with the header color and narrow body section of the <code class="language-plaintext highlighter-rouge">rmdformats::readthedown</code> theme, I just need to add a css section in the <code class="language-plaintext highlighter-rouge">Rmd</code> file.</p>
@@ -150,5 +149,5 @@ For example, I’m not happy with the header color and narrow body section of th
 The interactive plots are not properly rendered due to the incompatibility of my blog, however these should be perfectly working in the downloaded R markdown document.<br>
 Again, the completed <code class="language-plaintext highlighter-rouge">Rmd</code> and rendered <code class="language-plaintext highlighter-rouge">HTML</code> report can be downloaded from <a href="https://github.com/6chaoran/data-story/tree/master/r-markdown">here</a>.</p>
 
-<h2 id="rendered-document">Rendered document</h3>
+<h2 id="rendered-document">Rendering the document</h3>
 <iframe src="https://htmlpreview.github.io/?https://raw.githubusercontent.com/6chaoran/data-story/master/r-markdown/r-markdown-report-tips.html" allowfullscreen = true width="100%" height="650" style="border:none;"></iframe>
