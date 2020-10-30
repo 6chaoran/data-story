@@ -250,8 +250,8 @@ In summary, in order to build a unified shiny portal:
 
 ### Login Page
 
-* use `shiny::modalDialog` to create dialog box for login page
-* use `shiny::showModal`,`shiny::removeModal`,`shinyjs` to control the dialog box.
+* use `modalDialog` to create dialog box for login page
+* use `showModal`,`removeModal`,`shinyjs` to control the dialog box.
 
 ### Extendable Shiny Tabs
 
@@ -261,7 +261,7 @@ In summary, in order to build a unified shiny portal:
 
 ### Complete Unified Shiny Portal
 
-#### [shiny app on shinyapps.io](https://6chaoran.shinyapps.io/unified-shiny-portal/)
-#### [github repo](https://github.com/6chaoran/data-story/tree/master/shiny/unified-shiny-portal)
+#### [ShinyApp on shinyapps.io](https://6chaoran.shinyapps.io/unified-shiny-portal/)
+#### [Code on Github](https://github.com/6chaoran/data-story/tree/master/shiny/unified-shiny-portal)
 
 _login credential ( username: liuchr, password: 123456 )_

@@ -56,7 +56,7 @@ if you also encountered error:
 * use `which python` to check your python installation path.
 * use `vim ~/.bashrc` to add the python path, e.g. `export PATH=$PATH:xxx`
 
-reference:[https://blog.csdn.net/aubdiy/article/details/73930865](https://blog.csdn.net/aubdiy/article/details/73930865)
+Reference:[link](https://blog.csdn.net/aubdiy/article/details/73930865)
 
 If everything is successful, you will be able see the Airflow Web UI (http://localhost:8080) as follow:
 ![airflow-webserver](https://github.com/6chaoran/data-story/raw/master/data-tools/airflow/image/airflow-webui.png)
@@ -163,12 +163,19 @@ start a postgresql service
 
 use `vim ~/airflow/airflow.cfg` to modify config file:
 
-* change the mode of executor: `executor = LocalExecutor`
-* change database connection: `sql_alchemy_conn = postgresql+psycopg2://ubuntu@localhost:5432/airflow`
+
+```
+# change the mode of executor
+executor = LocalExecutor
+# change database connection: 
+sql_alchemy_conn = postgresql+psycopg2://ubuntu@localhost:5432/airflow
+```
 
 Finally, re-initialize the airflow database `airflow initdb`. You will find `INFO - Using executor LocalExecutor`, meaning LocalExecutor is successful set up.
 
+
 ### 3.4 Restart Aiflow scheduler/UI
+
 
 ```
 airflow scheduler -D
@@ -212,5 +219,5 @@ I simply create a crontab job to sync DAG repository from bitbucket to airflow D
 
 
 ## Reference:
-[Airflow official website](https://airflow.apache.org/installation.html)    
-[Installing Apache Airflow on Ubuntu/AWS – A.R.G.O. – Medium](https://medium.com/a-r-g-o/installing-apache-airflow-on-ubuntu-aws-6ebac15db211)
+* [Airflow official website](https://airflow.apache.org/installation.html)    
+* [Installing Apache Airflow on Ubuntu/AWS – A.R.G.O. – Medium](https://medium.com/a-r-g-o/installing-apache-airflow-on-ubuntu-aws-6ebac15db211)

@@ -116,5 +116,5 @@ docker build -t renv .
 
 ## Reference
 
-* Renv document: https://rstudio.github.io/renv/articles/renv.html
-* Renv github: https://github.com/rstudio/renv/
+* [Renv Official Document](https://rstudio.github.io/renv/articles/renv.html)
+* [Renv Github Page](https://github.com/rstudio/renv/)

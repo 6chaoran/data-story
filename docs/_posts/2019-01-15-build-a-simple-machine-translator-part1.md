@@ -48,8 +48,8 @@ However, we can't directly use the model for predicting, because we won't know t
 
 ![](https://raw.githubusercontent.com/6chaoran/nlp/master/nmt/image/demo.png)
 
-* github repo: [https://github.com/6chaoran/nlp/tree/master/nmt](https://github.com/6chaoran/nlp/tree/master/nmt)
-* jupyter notebook: [https://github.com/6chaoran/nlp/blob/master/nmt/infer_lstm.ipynb](https://github.com/6chaoran/nlp/blob/master/nmt/infer_lstm.ipynb)
+* Code on Github: [link](https://github.com/6chaoran/nlp/tree/master/nmt)
+* Jupyter Notebook: [link](https://github.com/6chaoran/nlp/blob/master/nmt/infer_lstm.ipynb)
 
 # Dataset
 
@@ -443,7 +443,7 @@ The results is not perfect, but some of them are quite funny.
 
 # Extension
 
-The full python code is available at github: [https://github.com/6chaoran/nlp/tree/master/nmt](https://github.com/6chaoran/nlp/tree/master/nmt)    
+The full python code is available at Github: [link](https://github.com/6chaoran/nlp/tree/master/nmt)    
 With this simple model setup, we still a lot of opportunities to improve, such as 
 
 * Richer Feature Encoding of sentence (POS Tagging, NER)
@@ -455,4 +455,4 @@ With this simple model setup, we still a lot of opportunities to improve, such a
 
 # Reference
 
-* [Keras Blog](https://blog.keras.io/a-ten-minute-introduction-to-sequence-to-sequence-learning-in-keras.html)
+* [A ten-minute introduction to sequence-to-sequence learning in Keras](https://blog.keras.io/a-ten-minute-introduction-to-sequence-to-sequence-learning-in-keras.html)

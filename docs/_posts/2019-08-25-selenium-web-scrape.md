@@ -32,7 +32,7 @@ the desired html elements are rendered from the `<script>`, so an alternative is
 
 ### 1. Prerequisite
 
-* download the chrome driver from [https://chromedriver.chromium.org/downloads](https://chromedriver.chromium.org/downloads)
+* download the chrome driver from [here](https://chromedriver.chromium.org/downloads)
 * current stable version is 76.0.3809.126
 * choose your Operating System (mac/windows/linux)
 * extract the webdriver to `CHOME_DRIVER` (e.g. `./chromedriver`)
