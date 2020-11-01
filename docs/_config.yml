@@ -117,6 +117,9 @@ author:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/6chaoran"
+    - label: "DataStory"
+      icon: "fas fa-fw fa-link"
+      url: "https://6chaoran.github.io/data-story"
 
 # Site Footer
 footer:
