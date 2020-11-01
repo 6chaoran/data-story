@@ -7,17 +7,16 @@ categories:
   - visualization
 tags:
   - R
+excerpt: "sharing a range of packages and tips to build a reproduciable analysis presentation in R markdown"
 ---
         
-<p>When presenting the data overview and exploratory analysis results, we used to copy a lots tables, charts from Rstudio to PowerPoint, which makes the presentation preparation painful. It become essential for data scientist to make use of better reporting tools, such as R markdown, jupyter notebooks to author analysis presentation in a more efficient and organized way, of course, we also want this to be reproducible!</p>
+<p>When presenting the data summary and exploratory analysis, we used to copy a lot of tables, charts from Rstudio to PowerPoint, which makes the presentation preparation painful. It becomes essential for data scientists to make use of better reporting tools, such as R markdown, Jupyter notebook to prepare the analysis presentation in a more efficient and organized way. Of course, we want this to be reproducible!</p>
 
-<!--more-->
-
-<p>In this post, I would like to share some tips of using the right tools to draw tables, plot charts, summarize datasets, when I explore building analysis report using R markdown/notebook.</p>
+<p>In this post, I would like to share some tips of using the right tools to draw tables, plot charts, summarize datasets, when I explore building report using R markdown/notebook.</p>
 
 <h2 id="notebook-configuration">Configuring the notebook</h2>
 
-<p>The configure of notebook is set by the yaml header at the beginning of the Rmd file.</p>
+<p>The configure of notebook is set by the YAML header at the beginning of the Rmd file.</p>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">title</code>: the title of the document</li>
@@ -26,12 +25,12 @@ tags:
   <li><code class="language-plaintext highlighter-rouge">output</code>: the rendering options. If set to <code class="language-plaintext highlighter-rouge">html_notebook</code>, an HTML file ended with <code class="language-plaintext highlighter-rouge">nb.html</code> will be automatically generated whenever the <code class="language-plaintext highlighter-rouge">Rmd</code> file is saved. Some other options are also available (i.e. <code class="language-plaintext highlighter-rouge">html_document</code>, <code class="language-plaintext highlighter-rouge">word_document</code>, <code class="language-plaintext highlighter-rouge">pdf_document</code>), if we are going produce other formats of documents.</li>
 </ul>
 
-<p>The following yaml header serves as a good template. The options are commented for easy explanation. The detail of the output options can be found in <a href="https://bookdown.org/yihui/rmarkdown/html-document.html">R Markdown: The Definitive Guide</a> html document section.</p>
+<p>The following YAML header serves as a good template. The options are commented for easy explanation. The detail of the output options can be found in <a href="https://bookdown.org/yihui/rmarkdown/html-document.html">R Markdown: The Definitive Guide</a> html document section.</p>
 
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
 <span class="na">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Tips</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">Drafting</span><span class="nv"> </span><span class="s">an</span><span class="nv"> </span><span class="s">R</span><span class="nv"> </span><span class="s">markdown</span><span class="nv"> </span><span class="s">document"</span>
 <span class="na">author</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Chaoran</span><span class="nv"> </span><span class="s">Liu</span><span class="nv"> </span><span class="s">&lt;6chaoran@gmail.com&gt;"</span>
-<span class="na">date</span><span class="pi">:</span> <span class="s2">"</span><span class="s">`r</span><span class="nv"> </span><span class="s">Sys.Date()`"</span>    <span class="c1"># can be static "2020-10-25" or "r Sys.Date()"</span>
+<span class="na">date</span><span class="pi">:</span> <span class="s2">"</span><span class="s">`r</span><span class="nv"> </span><span class="s">Sys.Date()`"</span>    <span class="c1"># can be static "2020-10-25" or "`r Sys.Date()`"</span>
 <span class="na">output</span><span class="pi">:</span> 
   <span class="na">html_notebook</span><span class="pi">:</span>
     <span class="na">code_folding</span><span class="pi">:</span> <span class="s">hide</span>    <span class="c1"># hide / show, default option for the code display</span>
@@ -48,7 +47,7 @@ tags:
 
 <p>The default themes are drawn from <code class="language-plaintext highlighter-rouge">Bootswatch</code> library and can be previewed from <a href="https://bootswatch.com/3/">here</a>. Although there are a variety of themes, they still look quite primitive.</p>
 
-<p>For a more appealing look, I found <code class="language-plaintext highlighter-rouge">rmdformats</code> package provide an alternative to the default theme by replacing the output options with the following.</p>
+<p>For a more appealing look, I found <code class="language-plaintext highlighter-rouge">rmdformats</code> package provides an alternative to the default theme by replacing the output options with the following.</p>
 
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">output</span><span class="pi">:</span> 
   <span class="s">rmdformats::readthedown:</span>
@@ -57,12 +56,15 @@ tags:
     <span class="s">number_sections</span><span class="pi">:</span> <span class="s">yes</span>
 <span class="nn">---</span>
 </code></pre></div></div>
+
+<p>the following screenshot is an example of rendered document from <code class="language-plaintext highlighter-rouge">rmdformats::readthedown</code>, of course the package <code class="language-plaintext highlighter-rouge">rmdformats</code> need to be installed before hand.</p>
+
 <p><img src="https://github.com/juba/rmdformats/raw/master/tools/screenshots/readthedown.png" alt="readthedown theme"></p>
 
 <h2 id="customize-with-css">Customizing with CSS</h2>
 
 <p>If you are familiar with some basic CSS, you can further tune the formats as you wish. 
-For example, I’m not happy with the header color and narrow body section of the <code class="language-plaintext highlighter-rouge">rmdformats::readthedown</code> theme, I just need to add a css section in the <code class="language-plaintext highlighter-rouge">Rmd</code> file.</p>
+For example, I’m not happy with the header color and the narrow body section of the <code class="language-plaintext highlighter-rouge">rmdformats::readthedown</code> theme, I just need to add a css section in the <code class="language-plaintext highlighter-rouge">Rmd</code> file.</p>
 
 <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;style&gt;</span>
   <span class="nf">#content</span> <span class="p">{</span>
@@ -79,7 +81,8 @@ For example, I’m not happy with the header color and narrow body section of th
 
 <h2 id="notebook-global-setup">Notebook Global Setup</h2>
 
-<p>When we’ve done the declaration of notebook configuration, theme and format customization, we are good to start drafting our R notebook. The very first R code chunk should be named <code class="language-plaintext highlighter-rouge">setup</code>, which can be used to declare global variables, settings and load all used libaries.</p>
+<p>When we’ve done the notebook configuration, theme and format customization, we are good to start drafting our R notebook. The very first R code chunk should be named <code class="language-plaintext highlighter-rouge">setup</code>, which can be used to declare global variables, settings and load all used libaries.</p>
+<p>In the following example, I hindered the warning and message printing and set the all plots size to be 12 * 6.</p>
 
 <div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">knitr</span><span class="o">::</span><span class="n">opts_chunk</span><span class="o">$</span><span class="n">set</span><span class="p">(</span><span class="w">
   </span><span class="n">warning</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">,</span><span class="w">
@@ -101,20 +104,18 @@ For example, I’m not happy with the header color and narrow body section of th
 
 <h2 id="drafting-the-document">Drafting the document</h2>
 
-<p>The Rmarkdown file can be very lengthy when we are writing a comprehensive EDA report. Some tips may help you with your markdown document authoring.</p>
+<p>The Rmarkdown code can be lengthy when we are writing a comprehensive EDA report. There are some tips may help you with your markdown document authoring.</p>
 
 <ol>
-  <li>list the section headers to construct the document layout, so that you can quickly navigate the sections</li>
+  <li>list the section headers to construct the document layout, so that you can quickly navigate to the sections</li>
   <li>put placeholders, such as <code class="language-plaintext highlighter-rouge">[TODO]</code> for later modification</li>
-  <li>avoid hard-coded the numbers, using inline r code to parameterize the numbers reporting</li>
-  <li>separate the data processing and document rendering in R script and Rmd file can make the report drafting productive, because it won’t require re-generating the intermediate R objects.</li>
+  <li>avoid hard-coded numbers, using inline r code to parameterize the number reporting</li>
+  <li>separate the data processing and document rendering in R script and Rmd file. It can make the report drafting and rendering more productive, because it doesn't require re-generating the intermediate R objects everytime.</li>
 </ol>
 
 <h3 id="mix-of-markdown-and-html">Mix of Markdown and HTML</h3>
 
-<p>The document content can be largely written using pure markdown. If you are new to the syntax of markdown, <a href="https://www.markdownguide.org/cheat-sheet/">here</a> is a good start for learning.<br></p>
-
-<p>Sometimes the markdown is not rich enough for formatting and HTML is usually preferable. Luckily, HTML is also enabled in Rmarkdown. For example, the a line break can be achieved in markdown using two space and a hit on return button. But the spaces are not visible in Rmarkdown file, so using html tag <code class="language-plaintext highlighter-rouge">&lt;br&gt;</code> may be a better choice.</p>
+<p>The document content can be largely written using pure markdown. If you are new to the syntax of markdown, <a href="https://www.markdownguide.org/cheat-sheet/">here</a> is a good start for learning. But sometimes the markdown is not rich enough and HTML is usually more preferable. Luckily, HTML is also enabled in Rmarkdown. For example, the a line break can be achieved in markdown using two space and a hit on return button. But the spaces are invisible in Rmarkdown file, so using html tag <code class="language-plaintext highlighter-rouge">&lt;br&gt;</code> may be a better choice.</p>
 
 <h3 id="tabbed-sections">Tabbed Sections</h3>
 
@@ -146,8 +147,13 @@ For example, I’m not happy with the header color and narrow body section of th
 </ul>
 
 <p>The examples are demonstrated in the following embedded html document. 
-The interactive plots are not properly rendered due to the incompatibility of my blog, however these should be perfectly working in the downloaded R markdown document.<br>
-Again, the completed <code class="language-plaintext highlighter-rouge">Rmd</code> and rendered <code class="language-plaintext highlighter-rouge">HTML</code> report can be downloaded from <a href="https://github.com/6chaoran/data-story/tree/master/r-markdown">here</a>.</p>
+The interactive plots are not properly rendered due to the incompatibility of my blog, however these should be perfectly working in the downloaded R markdown document. Again, the completed <code class="language-plaintext highlighter-rouge">Rmd</code> and rendered <code class="language-plaintext highlighter-rouge">HTML</code> report can be downloaded from <a href="https://github.com/6chaoran/data-story/tree/master/r-markdown">here</a>.</p>
 
 <h2 id="rendered-document">Rendering the document</h3>
+<p>There are some different options to render a html document from Rmd file.</p>
+<ol>
+  <li>For a <code class="language-plaintext highlighter-rouge">notebook</code> document: a <code class="language-plaintext highlighter-rouge">nb.html</code> file is automatically generated when the Rmd file is saved.</li>
+  <li>For a standalone <code class="language-plaintext highlighter-rouge">R markdown</code> document: click the blue knit button to render the html document.</li>
+  <li>For a separated <code class="language-plaintext highlighter-rouge">R markdown</code> document: add the one line of code (<code class="language-plaintext highlighter-rouge">rmarkdown::render("input.Rmd", "html_document")</code>) in R script to render the document.</li>
+</ol>
 <iframe src="https://htmlpreview.github.io/?https://raw.githubusercontent.com/6chaoran/data-story/master/r-markdown/r-markdown-report-tips.html" allowfullscreen = true width="100%" height="650" style="border:none;"></iframe>
