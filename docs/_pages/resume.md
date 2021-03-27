@@ -1,14 +1,19 @@
 ---
 permalink: /cv/
-title: "Chaoran Liu"
+title: "Chaoran <ins>Liu</ins>"
 layout: single
 classes: wide
 last_modified_at: 2017-02-14T14:28:13-05:00
 author_profile: true
 ---
 
-* Email:      [chaoran.liu@icloud.com](chaoran.liu@icloud.com)
-* LinkedIn:   [http://www.linkedin.com/in/liuchaoran](http://www.linkedin.com/in/liuchaoran)
+<div contact>
+
+<a href="mailto:chaoran.liu@icloud.com" style="text-decoration: none;"><i class="fas fa-envelope"></i> : chaoran.liu@icloud.com</a><br>
+
+<a href="https://www.linkedin.com/in/liuchaoran" style="text-decoration: none;"><i class="fab fa-linkedin"></i> : https://www.linkedin.com/in/liuchaoran</a><br>
+
+</div>
 
 ## WORKING EXPERIENCE
 
@@ -44,14 +49,7 @@ author_profile: true
 *	Automated data ETL and report generation, to monitor yield trend and workstation productivity.
 *	Designed advanced statistical process control methodologies for manufacturing quality assurance.
 
-## INDEPENDENT PROJECT	
-### Data Story Blog ([https://6chaoran.wordpress.com](https://6chaoran.wordpress.com)) | Jul 2015 - Present
-* Shared on online-course learning, demo code of applied machine learning algorithms and visualization.
-*	Blogged tutorial of kaggle data-science competitions and exploration of interesting datasets using R and Python.
-
 ## EDUCATION
-### Coursera | Mar 2015 – Dec 2015
-* Data Science Specialization ( 9 courses + 1 capstone project )
 
 ### National University of Singapore | Singapore	Jan 2014 – Jul 2015
 *	M.Sc. Industrial and Systems Engineering
@@ -61,13 +59,20 @@ author_profile: true
 
 ## CERTIFICATES & AWARDS
 
-*	Deep Learning Specialization (5 courses) | Coursera | Apr 2017
-*	Mining of Massive Datasets | Stanford Online | Jul 2016 – Sep 2016
-*	Data Science and Engineering with Spark Specialization (3 courses) | edX Berkeley | Jul 2015 
-*	Machine Learning Statement of Accomplishment | Stanford Online | Dec 2005 – Jul 2011
-*	P.R.C. Scholarship | Singapore Ministry of Education | Sep 2017 – Feb 2018
+| Certificate        | Institution           | Date  |
+| ------------- |:--------------| -----:|
+| Deep Learning Specialization (5 courses)     | Coursera | Apr 2017 |
+| Mining of Massive Datasets     | Stanford Online      |   Jul 2016 – Sep 2016 |
+| Data Science and Engineering with Spark Specialization (3 courses) | edX Berkeley | Jul 2015  |
+| Data Science Specialization ( 9 courses + 1 capstone project ) | Coursera | Mar 2015 – Dec 2015 |
+| Machine Learning Statement of Accomplishment | Stanford Online | Jul 2011 |
+| P.R.C. Scholarship | Singapore Ministry of Education | Sep 2017 – Feb 2018 |
 
 ## RELEVANT SKILLS
-*	Data ETL:	SQL(Hive/Presto/Impala/Netezza/Redshift), Spark, Airflow, Docker
-*	Modelling:	R, Python, Keras, LightGBM/XGBoost, scikit-learn, MLlib, caret
-*	Visualization:	Tableau, Shiny, ggplot2, GoogleVis, Superset
+
+| Category | Skills |
+| ------------- |:--------------|
+| Data ETL | SQL(Hive/Presto/Impala/Netezza/Redshift), Spark, Airflow, MLflow |
+| Modelling | R, Python, Keras, LightGBM/XGBoost, scikit-learn, H2O |
+| Visualization | Tableau, Shiny, ggplot2, Vue.js, HTML, CSS, JavaScript |
+| Deployment | Docker, API wrapping (FastAPI / Plumber) |
