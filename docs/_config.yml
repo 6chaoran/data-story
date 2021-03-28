@@ -107,7 +107,7 @@ analytics:
 # Site Author
 author:
   name             : *name # *name is a YAML reference pointing to the &anchor earlier
-  avatar           : "https://rawgit.com/6chaoran/data-story/master/docs/profile_pic.jpg"
+  avatar           : "assets/images/avatar.jpg"
   bio              : "data science enthusiast"
   location         : "Singapore"
   links:
@@ -117,9 +117,9 @@ author:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/6chaoran"
-    - label: "DataStory"
-      icon: "fas fa-fw fa-link"
-      url: "https://6chaoran.github.io/data-story"
+    - label: "WordPress"
+      icon: "fab fa-wordpress"
+      url: "https://6chaoran.wordpress.com/"
 
 # Site Footer
 footer:
@@ -192,12 +192,6 @@ collections:
   docs:
     output: true
     permalink: /:collection/:path/
-  recipes:
-    output: true
-    permalink: /:collection/:path/
-  pets:
-    output: true
-    permalink: /:collection/:path/
   portfolio:
     output: true
     permalink: /:collection/:path/
@@ -235,24 +229,6 @@ defaults:
       comments: false
       sidebar:
         nav: "docs"
-  # _recipes
-  - scope:
-      path: ""
-      type: recipes
-    values:
-      layout: single
-      author_profile: true
-      share: true
-      comments: true
-  # _pets
-  - scope:
-      path: ""
-      type: pets
-    values:
-      layout: single
-      author_profile: true
-      share: true
-      comment: true
   # _portfolio
   - scope:
       path: ""

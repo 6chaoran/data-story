@@ -187,8 +187,18 @@ author_profile: true
     }
     .page__title {
         margin-bottom: 30px;
+        font-size: 1.6rem;
     }
     .page__content h2 {
         border-bottom: none;
+    }
+
+    table {
+        display: table;
+        width: 90%;
+    }
+
+    ul li {
+        margin-bottom: 0;
     }
 </style>

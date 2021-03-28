@@ -6,7 +6,7 @@ main:
     url: /projects/
   - title: "Blog Posts"
     url: /year-archive/
-  - title: "Categories"
+  - title: "Blog Topics"
     url: /categories/
   - title: "About"
     url: /about/
