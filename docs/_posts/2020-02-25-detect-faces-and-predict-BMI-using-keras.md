@@ -9,14 +9,14 @@ tags:
   - python
   - keras
 header:
-  image: /assets/images/face2bmi-header.png
+  image: /assets/images/posts/face2bmi-header.png
 ---
 
 In this post,  we build a model that provides end-to-end capability of detecting faces from image and predicting the BMI, Age and Gender for each detected persons.
 
 <!--more-->
 
-# Structure
+# Model Architect
 
 The model is made up by several parts:
 
@@ -33,9 +33,9 @@ The model is made up by several parts:
 
 The architecture of the model is described as below:
 
-![](https://raw.githubusercontent.com/6chaoran/data-story/master/deep-learning/face2bmi/images/detect_predict_multi_faces.png)
+![](https://raw.githubusercontent.com/6chaoran/face2bmi/master/img/model_structure.jpg)
 
-# Face detection
+# Face Detection
 
 Face detection is done by MTCNN, which is able to detect multiple faces within an image and draw the bounding box for each faces.
 
@@ -145,7 +145,7 @@ plt.show()
 
 ![](https://6chaoran.files.wordpress.com/2020/01/download-3.png?w=700)
 
-# Model training
+# Model Training
 
 A model class `FacePrediction` was built separately from the notebook. Please refer to [here](https://github.com/6chaoran/face2bmi/blob/fe279ad8bbe7948cbadb746d1eea0e42cc3130b9/scripts/models.py#L108) for the details of model.
 
@@ -164,7 +164,7 @@ else:
     model.load_weights(model_dir)
 ```
 
-# Model evaluation
+# Model Evaluation
 
 The performance of tested models are quite similar. What surprised me is that, ResNet50 doesn’t outperform VGG16.
 Note: `VGG16_fc6` is the model that uses VGG16 as backbone, but extracted features from layer `fc6` instead of the last convolutional layer. This is recommended setting from this paper: [Face-to-BMI: Using Computer Vision to Infer Body Mass Index on Social Media](https://arxiv.org/pdf/1703.03156.pdf).
@@ -173,7 +173,7 @@ Note: `VGG16_fc6` is the model that uses VGG16 as backbone, but extracted featur
 
 ![](https://6chaoran.files.wordpress.com/2020/01/download-4.png)
 
-# Model Predictions
+# Model Prediction
 
 the built model class FacePrediction provides different predict functions
 
