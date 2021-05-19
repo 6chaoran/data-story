@@ -196,9 +196,11 @@ author_profile: true
     table {
         display: table;
         width: 90%;
+        font-size: 0.7rem;
     }
 
     ul li {
         margin-bottom: 0;
     }
 </style>
+    

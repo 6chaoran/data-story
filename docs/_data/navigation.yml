@@ -4,9 +4,9 @@ main:
     url: /cv/
   - title: "Projects"
     url: /projects/
-  - title: "Blog Posts"
+  - title: "Posts"
     url: /year-archive/
-  - title: "Blog Topics"
+  - title: "Topics"
     url: /categories/
   - title: "About"
     url: /about/
