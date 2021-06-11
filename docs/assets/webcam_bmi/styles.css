@@ -8,10 +8,6 @@
   left: 0;
 }
 
-body {
-  margin: 48px;
-}
-
 #image{
   max-width: 624px;
   max-height: 400px;
