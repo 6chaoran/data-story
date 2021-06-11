@@ -1,0 +1,65 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>BMI prediction using Tensorflow.js</title>
+</head>
+
+<body>
+    <!-- descriptions -->
+    <div style="margin-bottom: 24px;">
+        <h1>BMI prediction from Webcam / Uploaded Image using Tensorflow.js</h1>
+        <h3>For Webcam:</h3>
+        <ol>
+            <li>click [Enable Webcam] button and place your face in the red box, the prediction readings will be displayed at
+                the
+                bottom.</li>
+            <li>click [Stop Webcam] button to stop the prediction, or wait for 5 seconds to capture the readings.</li>
+        </ol>
+        <h3>For Uploaded Image:</h3>
+        <ol>
+            <li>click [Upload Image] to choose an image from your local disk.</li>
+            <li>click [Predict] to get the results.</li>
+        </ol>
+        <hr>
+    </div>
+
+    <!-- input image -->
+    <div style="margin-top: 24px;">
+        <img src="" alt="" id="image">
+    </div>
+
+    <!-- input webcam -->
+    <div style="position: relative;">
+        <video id="webcam" width="624px" height="400px"></video>
+        <canvas id="canvas" class="overlay"></canvas>
+    </div>
+
+    <!-- buttons -->
+    <div style="margin-top: 24px;">
+        <button id="webcamButton">Enable Webcam</button>
+        <button id="stopCamButton">Stop Webcam</button>
+        <button id="uploadButton">Upload Image</button>
+        <button id="predictButton">Predict</button>
+        <input type="file" id="myfile" name="myfile" class ="removed">
+        <p id="clock"></p>
+    </div>
+    
+
+    <!-- prediction results -->
+    <div id='results'>
+        <p id='BMI'></p>
+        <p id='AGE'></p>
+        <p id='SEX'></p>
+    </div>
+
+    <!-- tensorflow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+    <!-- my own js script -->
+    <script src='index.js'></script>
+</body>
+
+</html>
