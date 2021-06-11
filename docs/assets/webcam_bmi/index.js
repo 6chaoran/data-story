@@ -36,6 +36,14 @@ const AGEPool = [];
 const SEXPool = [];
 let maCount = 0;
 
+// disable webcam for mobile view
+if(window.screen.width <= 812){
+    enableWebcamButton.classList.add("removed");
+    document.getElementById("webcam-guides").classList.add("removed");
+    const elmToShow = document.getElementsByClassName("show-on-mobile");
+    elmToShow.forEach(i => i.classList.remove("removed"));
+}
+
 // load trained mobilenet
 async function loadModel() {
     const modelPath = "/data-story/assets/webcam_bmi/models/mobileNet/model.json"

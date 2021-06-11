@@ -1,13 +1,13 @@
 ---
-title: "BMI prediction from Webcam using Tensorflow.js"
+title: "BMI prediction from browser using Tensorflow.js"
 date: 2021-06-11 17:30:01 +0800
 toc: false
 toc_sticky: false
-categories: 
-  - visualization
+categories:
+- visualization
 classes: wide
 tags:
-  - python
+- javascript
 excerpt: "An example of deploying deep learning model in browser using tensorflow.js"
 ---
 
@@ -24,13 +24,22 @@ excerpt: "An example of deploying deep learning model in browser using tensorflo
 <body>
     <!-- descriptions -->
     <div style="margin-bottom: 24px;">
-        <h3>For Webcam:</h3>
-        <ol>
-            <li>click [Enable Webcam] button and place your face in the red box, the prediction readings will be displayed at
-                the
-                bottom.</li>
-            <li>click [Stop Webcam] button to stop the prediction, or wait for 5 seconds to capture the readings.</li>
-        </ol>
+        <p class="show-on-mobile removed"><i>You're likely using a mobile device, where the webcam prediction is not working
+                properly. At least I tested
+                on my iPhone X, which is not working. Please switch to a desktop browser, if you are keen to test the
+                webcam prediction.</i></p>
+        <div id="webcam-guides">
+            <h3>For Webcam:</h3>
+            <ol>
+                <li>click [Enable Webcam] button and place your face in the red box, the prediction readings will be
+                    displayed at
+                    the
+                    bottom.</li>
+                <li>click [Stop Webcam] button to stop the prediction, or wait for 5 seconds to automatically capture
+                    the readings.</li>
+            </ol>
+        </div>
+
         <h3>For Uploaded Image:</h3>
         <ol>
             <li>click [Upload Image] to choose an image from your local disk.</li>
@@ -56,10 +65,10 @@ excerpt: "An example of deploying deep learning model in browser using tensorflo
         <button id="stopCamButton">Stop Webcam</button>
         <button id="uploadButton">Upload Image</button>
         <button id="predictButton">Predict</button>
-        <input type="file" id="myfile" name="myfile" class ="removed">
+        <input type="file" id="myfile" name="myfile" class="removed">
         <p id="clock"></p>
     </div>
-    
+
 
     <!-- prediction results -->
     <div id='results'>
