@@ -12,13 +12,15 @@ stopWebcamButton.classList.add("removed");
 const webcam = document.getElementById('webcam');  // webcam element
 const canvas = document.getElementById("canvas"); // red box
 const image = document.getElementById('image');  // image element
+const results = document.getElementById("results"); // predicted results
 webcam.classList.add("removed");
+webcam.addEventListener('loadeddata', predictWebcam);
 const files = document.querySelector("#myfile"); //uploaded file;
 files.addEventListener('change', previewImage);
 
 // models
-const model = loadModel(); // load trained mobilenet
 const IMAGE_SIZE = 224;  // mobilenet input size
+const model = loadModel(); // load trained mobilenet
 const boxes = drawBox(); // red box for facial focusing
 
 // prediction results
@@ -37,7 +39,7 @@ const SEXPool = [];
 let maCount = 0;
 
 // disable webcam for mobile view
-if(window.screen.width <= 812){
+if (window.screen.width <= 812) {
     enableWebcamButton.classList.add("removed");
     document.getElementById("webcam-guides").classList.add("removed");
     const elmToShow = document.getElementsByClassName("show-on-mobile");
@@ -49,6 +51,11 @@ async function loadModel() {
     const modelPath = "/data-story/assets/webcam_bmi/models/mobileNet/model.json"
     const model = tf.loadLayersModel(modelPath);
     console.log("model is loaded");
+    // warm up the model
+    model.then(m => {
+        const x = tf.zeros([1, IMAGE_SIZE, IMAGE_SIZE, 3]);
+        m.predict(x);
+    })
     return model;
 }
 
@@ -90,29 +97,28 @@ if (getUserMediaSupported()) {
 }
 
 // Enable the live webcam view and start prediction.
-async function enableCam(event) {
-
+function enableCam(event) {
+    webcam.srcObject = null;
     // Only continue if the model has finished loading.
     if (!model) {
         return;
     }
-    await resetClock();
-
+    resetClock();
     // getUsermedia parameters to force webcam but not audio.
     const constraints = {
         video: true,
         audio: false
     };
     // Activate the webcam stream.
-    await navigator.mediaDevices.getUserMedia(constraints)
+    navigator.mediaDevices.getUserMedia(constraints)
         .then(function (stream) {
             webcam.srcObject = stream;
             webcam.play();
-            webcam.addEventListener('loadeddata', predictWebcam);
         });
-
     //show red box
     canvas.classList.remove("removed");
+    // show results
+    results.classList.remove("removed");
     // Hide/Show Webcam buttons
     enableWebcamButton.classList.add("removed");
     stopWebcamButton.classList.remove("removed");
@@ -132,6 +138,8 @@ function stopCam(event) {
     }
     enableWebcamButton.classList.remove("removed");
     stopWebcamButton.classList.add("removed");
+    webcam.removeEventListener('loadeddata', predictWebcam);
+
 }
 
 // predict function
@@ -140,24 +148,24 @@ async function predict() {
     if (maCount > timeOut * fps) {
         stopCam();
     }
-    if (!webcam.paused) {
+    if (!webcam.paused && webcam.srcObject != null) {
         const x = loadImage(webcam, withBox = true);
         model.then(loadedModel => loadedModel.predict(x))
-             .then((preds) => {
-            let [a, b, c] = preds;
-            [bmi, age, sex] = [a.dataSync()[0], b.dataSync()[0], c.dataSync()[0]];
-            a.dispose();
-            b.dispose();
-            c.dispose();
-            // compute MA to smoothen the predictions
-            [bmi, age, sex] = computeMA(bmi, age, sex, size = maWindow);
-            bmi = bmi == null ? "detecting" : bmi.toFixed(2);
-            age = age == null ? "detecting" : age.toFixed(0);
-            sex = sex == null ? "detecting" : `${sex > 0.5 ? 'Male' : 'Female'}(${sex.toFixed(2)})`;
-            BMI.innerHTML = `BMI: ${bmi}`;
-            AGE.innerHTML = `AGE: ${age}`;
-            SEX.innerHTML = `SEX: ${sex}`;
-        })
+            .then((preds) => {
+                let [a, b, c] = preds;
+                [bmi, age, sex] = [a.dataSync()[0], b.dataSync()[0], c.dataSync()[0]];
+                a.dispose();
+                b.dispose();
+                c.dispose();
+                // compute MA to smoothen the predictions
+                [bmi, age, sex] = computeMA(bmi, age, sex, size = maWindow);
+                bmi = bmi == null ? "detecting" : bmi.toFixed(2);
+                age = age == null ? "detecting" : age.toFixed(0);
+                sex = sex == null ? "detecting" : `${sex > 0.5 ? 'Male' : 'Female'}(${sex.toFixed(2)})`;
+                BMI.innerHTML = `BMI: ${bmi}`;
+                AGE.innerHTML = `AGE: ${age}`;
+                SEX.innerHTML = `SEX: ${sex}`;
+            });
     }
 
 }
@@ -174,10 +182,7 @@ async function resetClock() {
     BMIPool.length = 0;
     AGEPool.length = 0;
     SEXPool.length = 0;
-    clock.innerHTML = "";
-    BMI.innerHTML = "";
-    AGE.innerHTML = "";
-    SEX.innerHTML = "";
+    
 }
 
 // draw a box on webcam
@@ -224,7 +229,6 @@ function previewImage() {
     } else {
         predictButton.classList.add("removed");
     }
-
 }
 
 function predictImage() {
