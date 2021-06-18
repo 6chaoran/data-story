@@ -7,7 +7,7 @@ startCamBtn.addEventListener("click", startCam);
 stopCamBtn.addEventListener("click", stopCam);
 
 
-navigator.getUserMedia = navigator.getUserMedia ||
+navigator.getUserMedia = navigator.mediaDevices.getUserMedia ||
     navigator.webkitGetUserMedia ||
     navigator.mozGetUserMedia;
 
