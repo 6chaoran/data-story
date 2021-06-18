@@ -39,12 +39,12 @@ const SEXPool = [];
 let maCount = 0;
 
 // disable webcam for mobile view
-if (window.screen.width <= 812) {
-    enableWebcamButton.classList.add("removed");
-    document.getElementById("webcam-guides").classList.add("removed");
-    const elmToShow = document.getElementsByClassName("show-on-mobile");
-    elmToShow.forEach(i => i.classList.remove("removed"));
-}
+// if (window.screen.width <= 812) {
+//     enableWebcamButton.classList.add("removed");
+//     document.getElementById("webcam-guides").classList.add("removed");
+//     const elmToShow = document.getElementsByClassName("show-on-mobile");
+//     elmToShow.forEach(i => i.classList.remove("removed"));
+// }
 
 // load trained mobilenet
 async function loadModel() {
@@ -106,7 +106,7 @@ function enableCam(event) {
     resetClock();
     // getUsermedia parameters to force webcam but not audio.
     const constraints = {
-        video: true,
+        video: {width: 360, height: 360, facingMode: "user"},
         audio: false
     };
     // Activate the webcam stream.

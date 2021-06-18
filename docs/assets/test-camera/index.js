@@ -6,26 +6,26 @@ const stopCamBtn = document.getElementById("stopCamBtn");
 startCamBtn.addEventListener("click", startCam);
 stopCamBtn.addEventListener("click", stopCam);
 
-
-navigator.getUserMedia = navigator.mediaDevices.getUserMedia ||
-    navigator.webkitGetUserMedia ||
-    navigator.mozGetUserMedia;
-
-
-
 function startCam() {
-    if (navigator.getUserMedia) {
-        navigator.getUserMedia(constraints,
-            function (stream) {
-                webcam.srcObject = stream;
-                webcam.onloadedmetadata = function (e) {
-                    webcam.play();
-                };
-            },
-            function (err) {
+
+    if (navigator.mediaDevices.getUserMedia) {
+        const text = document.createElement('p');
+        text.innerText = "enabling";
+        document.body.append(text);
+        navigator.mediaDevices.getUserMedia(constraints)
+            .then(
+                function (stream) {
+                    webcam.srcObject = stream;
+                    webcam.onloadedmetadata = function (e) {
+                        webcam.play();
+                    };
+                }
+            ).catch(function (err) {
                 console.log("The following error occurred: " + err.name);
-            }
-        );
+                const text = document.createElement('p');
+                text.innerText = "The following error occurred: " + err.name;
+                document.body.append(text);
+            })
     } else {
         console.log("getUserMedia not supported");
         const text = document.createElement('p');
@@ -35,6 +35,7 @@ function startCam() {
 }
 
 function stopCam() {
+    webcam.pause();
     webcam.srcObject.getTracks().forEach(track => {
         track.stop();
     })
