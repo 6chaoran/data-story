@@ -19,7 +19,7 @@ author_profile: true
 
 <div class="working">
     <div class="logo">
-        <img src="https://media-exp1.licdn.com/dms/image/C560BAQFo9VVsXiAvQQ/company-logo_100_100/0/1519856476027?e=1625097600&v=beta&t=Y_C5ywsuBBSai1kOz5TKRiJYxylTfmSbEZ1tXLDmGsE">
+        <img src="/data-story/assets/images/cv/munichre.png">
     </div>
     <div class="title-desc">
         <h3>Senior Data Scientist</h3>
@@ -37,7 +37,7 @@ author_profile: true
 
 <div class="working">
     <div class="logo">
-        <img src="https://media-exp1.licdn.com/dms/image/C560BAQGs4J3LpJ112g/company-logo_200_200/0/1519881828477?e=1625097600&v=beta&t=oOdyuaZfqhAQnbTGgBZ5v8qUHRlQn73ApPJgER_mFPQ">
+        <img src="/data-story/assets/images/cv/ntuc.png">
     </div>
     <div class="title-desc">
         <h3>Data Scientist</h3>
@@ -56,7 +56,7 @@ author_profile: true
 
 <div class="working">
     <div class="logo">
-        <img src="https://media-exp1.licdn.com/dms/image/C560BAQF1C5FI9Tr3ow/company-logo_100_100/0/1614329241260?e=1625097600&v=beta&t=b-kARi21eamZrbuFg4Qz7isL8bqdOlIqfxbrvQU4TUg">
+        <img src="/data-story/assets/images/cv/coupang.jpg">
     </div>
     <div class="title-desc">
         <h3>eCommerce Data Scientist</h3>
@@ -72,7 +72,7 @@ author_profile: true
 
 <div class="working">
     <div class="logo">
-        <img src="https://media-exp1.licdn.com/dms/image/C4D0BAQFQviuyBqqtQQ/company-logo_100_100/0/1519952276394?e=1625097600&v=beta&t=P_lpdZBkeaKJdqfn9UCYJFof9biqdTump_thcWvgmAo">
+        <img src="/data-story/assets/images/cv/aon.jpg">
     </div>
     <div class="title-desc">
         <h3>Data Analyst</h3>
@@ -88,7 +88,7 @@ author_profile: true
 
 <div class="working">
     <div class="logo">
-        <img src="https://media-exp1.licdn.com/dms/image/C560BAQFTXefY2o1Oig/company-logo_200_200/0/1601990402958?e=1625097600&v=beta&t=jQSBYUOwcwjatbX-haNkagNqNaEcL1V-5p1UBQoXZ8k">
+        <img src="/data-story/assets/images/cv/crowdo.jpg">
     </div>
     <div class="title-desc">
         <h3>Freelance Data Analyst</h3>
@@ -102,7 +102,7 @@ author_profile: true
 
 <div class="working">
     <div class="logo">
-        <img src="https://media-exp1.licdn.com/dms/image/C4D0BAQH_LOg8ZPw72w/company-logo_100_100/0/1603128490043?e=1625097600&v=beta&t=bHRavef9i95OrrGKThh146gml215FSzy6YwrmS2_06s">
+        <img src="/data-story/assets/images/cv/micron.jpg">
     </div>
     <div class="title-desc">
         <h3>Process Engineer</h3>
@@ -119,7 +119,7 @@ author_profile: true
 
 <div class="working">
     <div class="logo">
-        <img src="https://media-exp1.licdn.com/dms/image/C4D0BAQGvBq9cz6AIIQ/company-logo_100_100/0/1519856127538?e=1625097600&v=beta&t=6_YvDGbJTNnuyaZ388YiKaxD6fhbtLh8GfF-aH3cyBE">
+        <img src="/data-story/assets/images/cv/nus.png">
     </div>
     <div class="title-desc">
         <h3>National University of Singapore</h3>
@@ -130,7 +130,7 @@ author_profile: true
 
 <div class="working">
     <div class="logo">
-        <img src="https://media-exp1.licdn.com/dms/image/C4D0BAQG0nfM0ZH4emA/company-logo_100_100/0/1519882861949?e=1625097600&v=beta&t=vJKucLR0NIciYvoP6PcNAkk63v7y3cfOac1iX501aw4">
+        <img src="/data-story/assets/images/cv/ntu.png">
     </div>
     <div class="title-desc">
         <h3>Nanyang Technological University</h3>
