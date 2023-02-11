@@ -78,7 +78,5 @@ h1, h2, h3 {
 
 The out-of-box RMarkDown template can be rendered to the following HTML document. Should you check out the [package](https://github.com/6chaoran/readthedown) and the [template](https://github.com/6chaoran/readthedown/blob/master/inst/rmarkdown/templates/readthedown/skeleton/skeleton.Rmd), if this is interesting to you.
 
-<!-- <iframe src="https://htmlpreview.github.io/?https://raw.githubusercontent.com/6chaoran/data-story/master/r-markdown/readthedown-template.html" allowfullscreen = true width="100%" height="650" style="border:none;"></iframe> -->
-
 <iframe src="https://6chaoran.github.io/data-story/assets/document/readthedown-template.html" allowfullscreen = true width="100%" height="650" style="border:none;"></iframe>
 
