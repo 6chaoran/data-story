@@ -23,7 +23,7 @@ author_profile: true
     </div>
     <div class="title-desc">
         <h3>Senior Data Scientist</h3>
-        <p>Munich Re (Group) | Singapore</p>
+        <p>Munich Re (Group) | 📍Singapore</p>
         <p>Jul 2019 - Present</p>
     </div>
 </div>
@@ -41,7 +41,7 @@ author_profile: true
     </div>
     <div class="title-desc">
         <h3>Data Scientist</h3>
-        <p>NTUC Link | Singapore</p>
+        <p>NTUC Link | 📍Singapore</p>
         <p>Aug 2017 - Jul 2019</p>
     </div>
 </div>
@@ -60,7 +60,7 @@ author_profile: true
     </div>
     <div class="title-desc">
         <h3>eCommerce Data Scientist</h3>
-        <p>Coupang | Shanghai, China</p>
+        <p>Coupang | 📍Shanghai, China</p>
         <p>Jul 2016 – Jun 2017</p>
     </div>
 </div>
@@ -76,7 +76,7 @@ author_profile: true
     </div>
     <div class="title-desc">
         <h3>Data Analyst</h3>
-        <p>Aon Center of Innovations and Analytics | Singapore</p>
+        <p>Aon Center of Innovations and Analytics | 📍Singapore</p>
         <p>Sep 2015 – Jun 2016</p>
     </div>
 </div>
@@ -92,7 +92,7 @@ author_profile: true
     </div>
     <div class="title-desc">
         <h3>Freelance Data Analyst</h3>
-        <p>Crowdo | Singapore</p>
+        <p>Crowdo | 📍Singapore</p>
         <p>Aug 2015 – Sep 2015</p>
     </div>
 </div>
@@ -106,7 +106,7 @@ author_profile: true
     </div>
     <div class="title-desc">
         <h3>Process Engineer</h3>
-        <p>Micron | Singapore</p>
+        <p>Micron | 📍Singapore</p>
         <p>Sep 2011 – Dec 2014</p>
     </div>
 </div>
@@ -123,7 +123,7 @@ author_profile: true
     </div>
     <div class="title-desc">
         <h3>National University of Singapore</h3>
-        <p>M.Sc. Industrial and Systems Engineering | Singapore</p>
+        <p>M.Sc. Industrial and Systems Engineering | 📍Singapore</p>
         <p>Jan 2014 – Jul 2015</p>
     </div>
 </div>
@@ -134,7 +134,7 @@ author_profile: true
     </div>
     <div class="title-desc">
         <h3>Nanyang Technological University</h3>
-        <p>B.Eng. Chemical and Biomolecular Engineering | Singapore</p>
+        <p>B.Eng. Chemical and Biomolecular Engineering | 📍Singapore</p>
         <p>Aug 2007 - Jul 2011</p>
     </div>
 </div>
