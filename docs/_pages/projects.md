@@ -22,14 +22,6 @@ summarytools:
     btn_label: "Read More"
     btn_class: "btn--primary"
 
-face2bmi:
-  - image_path: assets/images/projects/face2bmi-header.png    
-    alt: "placeholder image 2"
-    title: "Face Recognition & BMI Prediction using Keras"
-    excerpt: 'In this post, we build a model that provides end-to-end capability of detecting faces from image and predicting the BMI, Age and Gender for each detected persons.    '
-    url: "/deep-learning/detect-faces-and-predict-BMI-using-keras/"
-    btn_label: "Read More"
-    btn_class: "btn--primary"
 
 deepfm:
   - image_path: https://www.researchgate.net/profile/Huifeng_Guo/publication/318829508/figure/fig1/AS:522607722467328@1501610798143/Wide-deep-architecture-of-DeepFM-The-wide-and-deep-component-share-the-same-input-raw.png  
@@ -51,7 +43,6 @@ Later, on top of wide & deep learning, deepfm was developed combining DNN model 
     btn_class: "btn--primary"
 ---
 {% include feature_row id="summarytools" type="left" %}
-{% include feature_row id="face2bmi" type="left" %}
 {% include feature_row id="deepfm" type="left" %}
 
 <style>
