@@ -1,0 +1,65 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPR Profile Estimate</title>
+</head>
+
+<body>
+    <h1>API Call Example</h1>
+
+    <div id="output"></div>
+
+    <button id="fetchButton">Fetch Data</button>
+    <input type="text" id="textInput" placeholder="Enter text">
+    <button id="postButton">Send Text</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        const fetchButton = document.getElementById('fetchButton');
+        const postButton = document.getElementById('postButton');
+        const output = document.getElementById('output');
+        const textInput = document.getElementById('textInput');
+        const apiURL = "http://118.189.211.172:8000";
+
+        fetchButton.addEventListener('click', () => {
+            // Make a GET request
+            axios.get(`${apiURL}`)
+                .then(response => {
+                    // Handle the response data
+                    output.innerText = JSON.stringify(response.data, null, 2);
+                })
+                .catch(error => {
+                    // Handle the error
+                    console.error(error);
+                });
+        });
+
+        postButton.addEventListener('click', () => {
+            // Make a POST request
+            const text = textInput.value;
+            const data = { text: text };
+            console.log(data);
+            axios.post(`${apiURL}/get_matches`, null, {
+                params: {
+                    text: text
+                },
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+                .then(response => {
+                    // Handle the response data
+                    console.log(response.data);
+                    output.innerText = JSON.stringify(response.data.matches, null, 2);
+                })
+                .catch(error => {
+                    // Handle the error
+                    console.error(error);
+                });
+        });
+    </script>
+</body>
+
+</html>
